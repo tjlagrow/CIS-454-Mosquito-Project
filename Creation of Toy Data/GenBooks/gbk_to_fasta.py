@@ -2,13 +2,12 @@
 gbk_to_fasta.py
 Author: Theodore LaGrow
 Language: Python 3.5.1
-Packages Needed: biopython
+Packages Needed: biopython, random
 Description of Code:
 
 """
 
 import sys
-import os
 from Bio import SeqIO
 import random	
 
@@ -20,12 +19,6 @@ def create_fasta():
 	while i < 11:
 		genBankName = "{}{}{}".format("ecoli", i, ".wg.gbk")
 		fastaName = "{}{}{}".format("ecoli", i, ".fasta")
-		#completePathGen = os.path.join(save_path1, genBankName)
-		#print(completePathGen)
-		#completePathFasta = os.path.join(save_path2, fastaName)
-		#print(completePathFasta)
-		#print(str)
-		#print(completePath)
 		
 		input_handle = open(genBankName, "rU")
 		output_handle = open(fastaName, "w")
@@ -47,9 +40,9 @@ def get_reed_data_forward():
 		record = SeqIO.read(parse_file,'fasta')
 		toyFile = open("toy_data.txt", "a")
 		toyTemp = open("toy_file.txt", "r+")
-		#print(record.seq)
+		#print(record.seq) # used to test to see the sequence
 		toyTemp.write(str(record.seq))
-		toyTemp.close()
+		toyTemp.close() # I just strong handed this, python was being dumb so I just closed the file and reopened it
 		toyTemp = open("toy_file.txt", "r")
 
 		count = 0
@@ -61,10 +54,11 @@ def get_reed_data_forward():
 				while i < len(line) and (len(line) - i) > 99:
 					reed_len = random.randint(100, 180)
 					toyFile.write("%s\n" % line[i:(i+reed_len)])
-					#print(line[i:(i+reed_len)])
+					#print(line[i:(i+reed_len)]) #for testing
 					i += reed_len
 
-			print("{}{}{}{}{}".format("ecoli", k, ".fasta has been Aluminated using forwards parsing ", count+1, " times."))
+			print("{}{}{}{}{}".format("ecoli", k, ".fasta has been Aluminated using forwards parsing ", count+1, " times.")) #this is to show the program is running so it is not a silent excecution.
+
 			
 			count += 1
 
@@ -81,7 +75,7 @@ def get_reed_data_backwards():
 		record = SeqIO.read(parse_file,'fasta')
 		toyFile = open("toy_data.txt", "a")
 		toyTemp = open("toy_file.txt", "r+")
-		#print(record.seq)
+		#print(record.seq) # used to test to see the sequence
 		toyTemp.write(str(record.seq))
 		toyTemp.close()
 		toyTemp = open("toy_file.txt", "r")
@@ -99,7 +93,7 @@ def get_reed_data_backwards():
 					reed_len = random.randint(100, 180)
 					new_line = reverse[i:(i+reed_len)] # put the string back to correct ordering
 					toyFile.write("%s\n" % new_line[::-1])
-					#print(line[i:(i+reed_len)])
+					#print(line[i:(i+reed_len)]) #for testing
 					i += reed_len
 
 			print("{}{}{}{}{}".format("ecoli", k, ".fasta has been Aluminated using backwards parsing ", count+1, " times.")) #this is to show the program is running so it is not a silent excecution.
@@ -113,7 +107,7 @@ def get_reed_data_backwards():
 
 
 if __name__ == '__main__':
-	#create_fasta()
+	#create_fasta() # do not need this function after fasta files are already created
 	get_reed_data_forward()
 	get_reed_data_backwards()
 

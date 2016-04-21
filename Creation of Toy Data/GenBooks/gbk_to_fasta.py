@@ -38,7 +38,7 @@ def get_reed_data_forward():
 	while k < 11:
 		parse_file = "{}{}{}".format("ecoli", k, ".fasta")
 		record = SeqIO.read(parse_file,'fasta')
-		toyFile = open("toy_data.txt", "a")
+		toyFile = open("queue.txt", "a")
 		toyTemp = open("toy_file.txt", "r+")
 		#print(record.seq) # used to test to see the sequence
 		toyTemp.write(str(record.seq))
@@ -73,7 +73,7 @@ def get_reed_data_backwards():
 	while k < 11:
 		parse_file = "{}{}{}".format("ecoli", k, ".fasta")
 		record = SeqIO.read(parse_file,'fasta')
-		toyFile = open("toy_data.txt", "a")
+		toyFile = open("queue.txt", "a")
 		toyTemp = open("toy_file.txt", "r+")
 		#print(record.seq) # used to test to see the sequence
 		toyTemp.write(str(record.seq))
@@ -106,8 +106,59 @@ def get_reed_data_backwards():
 		k += 1
 
 
+def deleation():
+	"""
+	I made this method to take out 20 percent of the toy data because thinking about how the algoithems work, our data is too perfect.
+	So, I iterated though and for every 10 lines, I deleted 2 lines of code at random.
+	"""
+	toyFile = open("queue.txt", "r")
+	toyFinal = open("toy_data.txt", "a")
+
+	how_many_lines_to_delete = 2 # can change how many line you delete, max{9}
+	j = 0
+	line_count = 1
+	how_many_reeds_deletes = 0
+	
+	for line in toyFile:
+		j += 1
+	print("number of lines: ", j) # j = 665676
+	toyFile.close()
+	
+	toyFile = open("queue.txt", "r+")
+	sample = []
+	
+	while line_count < j and (j - line_count) > 10:
+		for i in range(line_count, line_count+10):
+			sample.append(toyFile.readline().strip())
+			line_count += 1
+
+
+		
+		# this is for the deletions 
+		for k in range(how_many_lines_to_delete): 
+			r1 = random.randint(0, 9-k) # k is needed for changing the size of random numbers as sample changes
+			del sample[r1]
+			how_many_reeds_deletes += 1
+		
+		
+
+		# This is to add it to the toy_data.txt
+		for n in range(10-how_many_lines_to_delete):
+			toyFinal.write("{}{}".format(sample[n], "\n"))
+
+
+		del sample[:]
+
+	print("Reeds deleted: ", how_many_reeds_deletes)
+	
+	toyFile.close()
+	toyFinal.close()
+
+
+
 if __name__ == '__main__':
 	#create_fasta() # do not need this function after fasta files are already created
 	get_reed_data_forward()
 	get_reed_data_backwards()
+	deleation()
 

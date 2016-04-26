@@ -26,6 +26,12 @@ UPDATE (4/21):
 I was thinking about the data created and I decided to delete 20 percent of the data randomly. Every 10 reads in the full toy_data file, I deleted 2 lines so we can potentially get a better idea of how the transcripton might act.  The pure toy_data file was ~665000 lines,  and now it is around 532000 lines.  Hopefully, this gives us a better idea for using parameters in a quicker way.  
 
 
+UPDATE (4/26):
+
+I made the reeds a fasta!!! Good luck!
+
+
+
 Thank you!
 -TJ
 

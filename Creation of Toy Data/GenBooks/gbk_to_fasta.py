@@ -154,11 +154,26 @@ def deleation():
 	toyFile.close()
 	toyFinal.close()
 
+def make_fasta():
+	toyFinal = open("toy_data.txt", "r+")
+	toy = open("toy.fasta", "a")
 
+	array = []
+
+
+	for line in toyFinal:
+		array.append("{}{}".format(">\n", line.strip()))
+
+	for n in array:
+		toy.write("{}{}".format(n, "\n"))
+
+	toyFinal.close()
+	toy.close()
 
 if __name__ == '__main__':
 	#create_fasta() # do not need this function after fasta files are already created
-	get_reed_data_forward()
-	get_reed_data_backwards()
-	deleation()
+	#get_reed_data_forward()
+	#get_reed_data_backwards()
+	#deleation()
+	make_fasta()
 

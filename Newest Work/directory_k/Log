@@ -1,0 +1,31 @@
+Thu Apr 28 10:41:26 2016
+ ./velveth directory_k 31 toy.fasta
+Version 1.2.10
+Copyright 2007, 2008 Daniel Zerbino (zerbino@ebi.ac.uk)
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Compilation settings:
+CATEGORIES = 2
+MAXKMERLENGTH = 31
+
+Thu Apr 28 10:41:46 2016
+ ./velvetg directory_k -read_trkg yes
+Version 1.2.10
+Copyright 2007, 2008 Daniel Zerbino (zerbino@ebi.ac.uk)
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Compilation settings:
+CATEGORIES = 2
+MAXKMERLENGTH = 31
+
+Final graph has 1649 nodes and n50 of 20004, max 73032, total 4548452, using 532765/532784 reads
+Thu Apr 28 10:43:03 2016
+ ./oases velvet/directory_k/
+Version 1.2.10
+Copyright 2007, 2008 Daniel Zerbino (zerbino@ebi.ac.uk)
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Compilation settings:
+CATEGORIES = 2
+MAXKMERLENGTH = 64
+

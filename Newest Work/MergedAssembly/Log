@@ -1,0 +1,32 @@
+Thu Apr 28 11:22:04 2016
+ ./velveth MergedAssembly/ 27 -long data/test_long.fa
+Version 1.2.10
+Copyright 2007, 2008 Daniel Zerbino (zerbino@ebi.ac.uk)
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Compilation settings:
+CATEGORIES = 2
+MAXKMERLENGTH = 31
+
+Thu Apr 28 11:22:07 2016
+ ./velvetg MergedAssembly/ -read_trkg yes -conserveLong yes
+Version 1.2.10
+Copyright 2007, 2008 Daniel Zerbino (zerbino@ebi.ac.uk)
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Compilation settings:
+CATEGORIES = 2
+MAXKMERLENGTH = 31
+
+Final graph has 346 nodes and n50 of 215, max 812, total 58902, using 1881/2000 reads
+Thu Apr 28 11:22:26 2016
+ ./oases velvet/MergedAssembly/
+Version 1.2.10
+Copyright 2007, 2008 Daniel Zerbino (zerbino@ebi.ac.uk)
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Compilation settings:
+CATEGORIES = 2
+MAXKMERLENGTH = 64
+
+Finished extracting transcripts, used 0/2000 reads on 0 loci
